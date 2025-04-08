@@ -1,31 +1,63 @@
 # System Patterns
 
 ## Architecture Overview
-[High-level system architecture description]
+The TypeScript Core Framework follows a modular monorepo architecture with three main packages:
+1. Core (@ts-core/core): Foundation with DI and HTTP abstractions
+2. Entity Framework (@ts-core/entity-framework): ORM functionality
+3. Minimal API (@ts-core/minimal-api): Streamlined API development
 
 ## Design Patterns
-### Pattern 1
-- **Purpose**: [What problem it solves]
-- **Implementation**: [How it's implemented]
-- **Usage**: [Where it's used]
+### Dependency Injection
+- **Purpose**: Manage service lifetimes and dependencies
+- **Implementation**: Service collection and provider pattern
+- **Usage**: Throughout the framework for service management
+
+### Unit of Work (DbContext)
+- **Purpose**: Manage database operations and transactions
+- **Implementation**: Entity Framework DbContext pattern
+- **Usage**: Database operations and entity management
+
+### Middleware Pipeline
+- **Purpose**: HTTP request/response processing
+- **Implementation**: Chainable middleware components
+- **Usage**: Request processing in Minimal API
 
 ## Code Organization
-- [Directory structure]
-- [Module organization]
-- [File naming conventions]
+- Monorepo structure with separate packages
+- Feature-based organization within packages
+- Clear separation of interfaces and implementations
+- Consistent file naming and organization
+- Shared types and utilities
 
 ## Technical Decisions
-### Decision 1
-- **Context**: [Background information]
-- **Decision**: [What was decided]
-- **Consequences**: [Impact of the decision]
+### TypeScript First
+- **Context**: Framework development language
+- **Decision**: Built entirely in TypeScript
+- **Consequences**: Better type safety, IDE support, and developer experience
+
+### Modular Architecture
+- **Context**: Framework structure
+- **Decision**: Separate packages for core features
+- **Consequences**: Better maintainability and selective adoption
+
+### Database Abstraction
+- **Context**: Data access strategy
+- **Decision**: Entity Framework-like ORM
+- **Consequences**: Consistent data access across providers
 
 ## Best Practices
-- [Coding standards]
-- [Review process]
-- [Testing approach]
+- Comprehensive unit testing
+- Consistent code style (ESLint + Prettier)
+- Documentation-driven development
+- Conventional commits
+- Semantic versioning
+- Type-safe implementations
 
 ## System Dependencies
-- [External services]
-- [Libraries and frameworks]
-- [Infrastructure components] 
+- Node.js 16+
+- TypeScript 4.x+
+- pnpm package manager
+- SQLite/PostgreSQL (for Entity Framework)
+- Jest (testing)
+- ESLint/Prettier (code quality)
+- TypeDoc (documentation) 

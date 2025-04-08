@@ -1,23 +1,28 @@
 # Change Logs
 
-## [Version Number] - [Date]
+## 0.1.0 - 2025-04-08
 ### Added
-- [New features]
+- Initial project structure
+- Core package template
+- Entity Framework package template
+- Minimal API package template
+- Documentation framework
+- Memory bank system
 
 ### Changed
-- [Changes to existing functionality]
+- N/A (Initial Release)
 
 ### Deprecated
-- [Soon-to-be removed features]
+- N/A (Initial Release)
 
 ### Removed
-- [Removed features]
+- N/A (Initial Release)
 
 ### Fixed
-- [Bug fixes]
+- N/A (Initial Release)
 
 ### Security
-- [Security fixes]
+- N/A (Initial Release)
 
 ## Notes
 - All changes follow [Semantic Versioning](https://semver.org/)

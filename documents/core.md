@@ -1,11 +1,11 @@
 # Core Framework
 
-The Core package (`@ts-core/core`) provides the foundation for the TypeScript Core Framework, including dependency injection, HTTP abstractions, configuration, and utilities.
+The Core package (`@core`) provides the foundation for the TypeScript Core Framework, including dependency injection, HTTP abstractions, configuration, and utilities.
 
 ## Installation
 
 ```bash
-pnpm add @ts-core/core
+pnpm add @core
 ```
 
 ## Key Components
@@ -23,7 +23,7 @@ The dependency injection system is the heart of the framework, providing a robus
 #### Service Registration
 
 ```typescript
-import { ServiceCollection, IServiceCollection } from "@ts-core/core";
+import { ServiceCollection, IServiceCollection } from "@core";
 
 // Create a service collection
 const services = new ServiceCollection();
@@ -43,7 +43,7 @@ const logger = serviceProvider.getService(ILogger);
 #### Using Decorators
 
 ```typescript
-import { Singleton, Scoped, Transient, Inject } from "@ts-core/core";
+import { Singleton, Scoped, Transient, Inject } from "@core";
 
 // Singleton service
 @Singleton()
@@ -75,7 +75,7 @@ The core package provides abstractions for HTTP handling, making it easy to buil
 #### Application Builder
 
 ```typescript
-import { ApplicationBuilder, IServiceProvider } from "@ts-core/core";
+import { ApplicationBuilder, IServiceProvider } from "@core";
 
 // Create application builder
 const appBuilder = new ApplicationBuilder(serviceProvider);
@@ -98,7 +98,7 @@ app.listen(3000, () => {
 #### Application Host
 
 ```typescript
-import { ApplicationHost } from "@ts-core/core";
+import { ApplicationHost } from "@core";
 
 // Create application host
 const host = new ApplicationHost();
@@ -127,7 +127,7 @@ host.run(3000).then(() => {
 The configuration system allows for flexible configuration from various sources.
 
 ```typescript
-import { ConfigurationBuilder, addConfiguration } from "@ts-core/core";
+import { ConfigurationBuilder, addConfiguration } from "@core";
 
 // Configure services
 services.addConfiguration((builder) => {
@@ -146,7 +146,7 @@ const apiKey = config.get<string>("api:key");
 The logging system provides a structured way to log messages at different levels.
 
 ```typescript
-import { ILogger, LogLevel, addLogging } from "@ts-core/core";
+import { ILogger, LogLevel, addLogging } from "@core";
 
 // Add logging to services
 addLogging(services, LogLevel.Information);
