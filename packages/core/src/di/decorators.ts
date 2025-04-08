@@ -47,7 +47,7 @@ export function Transient() {
 export function Inject(token?: any) {
   return function (
     target: any,
-    propertyKey: string | symbol,
+    propertyKey: string | symbol | undefined,
     parameterIndex: number
   ) {
     const existingInjections =

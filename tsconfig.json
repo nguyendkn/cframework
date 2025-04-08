@@ -9,6 +9,8 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@core/*": ["./packages/core/src/*"],
       "@database/*": ["./packages/database/src/*"],

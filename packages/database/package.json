@@ -8,7 +8,9 @@
     "dev": "tsc --watch",
     "lint": "eslint src --ext .ts",
     "check-types": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config ../../jest.config.ts --selectProjects database",
+    "test:watch": "jest --config ../../jest.config.ts --selectProjects database --watch",
+    "test:coverage": "jest --config ../../jest.config.ts --selectProjects database --coverage"
   },
   "keywords": [],
   "author": "",
