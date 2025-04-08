@@ -1,0 +1,19 @@
+{
+  "name": "@csmartcloud/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "express": "^5.1.0",
+    "reflect-metadata": "^0.2.2",
+    "typescript": "5.8.2"
+  }
+}
