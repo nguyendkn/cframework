@@ -53,11 +53,15 @@ export class MinimalApiApplication implements IMinimalApiApplication {
 
     this._host.configure((appBuilder: IApplicationBuilder) => {
       // Create minimal API builder
-      const serviceProvider = appBuilder.getServiceProvider();
+      // Get the service provider from the application builder
+      // This is a workaround for the missing getServiceProvider method
+      const serviceProvider = (appBuilder as any).serviceProvider;
       const minimalApiBuilder = new MinimalApiBuilder(serviceProvider);
 
       // Configure minimal API
-      this._configureApp(minimalApiBuilder);
+      if (this._configureApp) {
+        this._configureApp(minimalApiBuilder);
+      }
 
       // Build application
       const app = minimalApiBuilder.build();

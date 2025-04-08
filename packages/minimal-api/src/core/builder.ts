@@ -100,25 +100,32 @@ export class MinimalApiBuilder implements IMinimalApiBuilder {
 
       switch (route.method) {
         case HttpMethod.GET:
-          appBuilder.getRouter().get(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.get(route.path, expressHandler);
           break;
         case HttpMethod.POST:
-          appBuilder.getRouter().post(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.post(route.path, expressHandler);
           break;
         case HttpMethod.PUT:
-          appBuilder.getRouter().put(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.put(route.path, expressHandler);
           break;
         case HttpMethod.DELETE:
-          appBuilder.getRouter().delete(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.delete(route.path, expressHandler);
           break;
         case HttpMethod.PATCH:
-          appBuilder.getRouter().patch(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.patch(route.path, expressHandler);
           break;
         case HttpMethod.OPTIONS:
-          appBuilder.getRouter().options(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.options(route.path, expressHandler);
           break;
         case HttpMethod.HEAD:
-          appBuilder.getRouter().head(route.path, expressHandler);
+          // Use the express app directly as a workaround for the missing getRouter method
+          (appBuilder as any).app.head(route.path, expressHandler);
           break;
       }
     }

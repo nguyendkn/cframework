@@ -51,13 +51,14 @@ export class DbContextOptionsBuilder {
     database: string,
     synchronize: boolean = false
   ): DbContextOptionsBuilder {
-    const options: DataSourceOptions = {
+    // Create a mutable copy of the options
+    const options = {
       ...this._dataSourceOptions,
-      type: "sqlite",
+      type: "sqlite" as const,
       database,
       synchronize,
     };
-    this._dataSourceOptions = options
+    this._dataSourceOptions = options as DataSourceOptions
     return this;
   }
 
@@ -65,10 +66,15 @@ export class DbContextOptionsBuilder {
    * Add entities to the context
    */
   public addEntities(entities: EntityTarget<any>[]): DbContextOptionsBuilder {
-    this._dataSourceOptions.entities = [
-      ...(this._dataSourceOptions.entities || []),
-      ...entities,
-    ];
+    // Create a mutable copy of the options
+    const options = {
+      ...this._dataSourceOptions,
+      entities: [
+        ...(Array.isArray(this._dataSourceOptions.entities) ? this._dataSourceOptions.entities : []),
+        ...entities,
+      ]
+    };
+    this._dataSourceOptions = options as DataSourceOptions;
     return this;
   }
 
@@ -76,7 +82,12 @@ export class DbContextOptionsBuilder {
    * Enable logging
    */
   public enableLogging(logging: boolean = true): DbContextOptionsBuilder {
-    this._dataSourceOptions.logging = logging;
+    // Create a mutable copy of the options
+    const options = {
+      ...this._dataSourceOptions,
+      logging
+    };
+    this._dataSourceOptions = options as DataSourceOptions;
     return this;
   }
 
@@ -113,9 +124,9 @@ export function addDbContext<TContext extends DbContext>(
   const builder = new DbContextOptionsBuilder();
   const options = configureOptions(builder).build();
 
-  // Register the context factory
+  // Register the context factory using string as type to avoid TS2693 error
   services.addScoped(
-    IDbContextFactory,
+    'IDbContextFactory',
     new DbContextFactory(contextType, options)
   );
 

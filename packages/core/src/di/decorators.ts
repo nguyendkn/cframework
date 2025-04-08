@@ -13,7 +13,7 @@ export const INJECT_METADATA_KEY = "ts-core:inject";
 export function Injectable(
   lifetime: ServiceLifetime = ServiceLifetime.Singleton
 ) {
-  return function (target: Object) {
+  return function (target: any) {
     Reflect.defineMetadata(INJECTABLE_METADATA_KEY, lifetime, target);
     return target;
   };

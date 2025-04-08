@@ -88,7 +88,9 @@ class ServiceProvider implements IServiceProvider {
   constructor(descriptors: ServiceDescriptor[]) {
     // Register the service provider itself
     this._singletonInstances.set(ServiceProvider, this);
-    this._singletonInstances.set(IServiceProvider, this);
+    // Register this instance as the IServiceProvider implementation
+    // Using type as string to avoid TS2693 error
+    this._singletonInstances.set('IServiceProvider', this);
 
     // Register all descriptors
     for (const descriptor of descriptors) {
@@ -149,7 +151,7 @@ class ServiceProvider implements IServiceProvider {
       scopedInstances.set(serviceType, instance);
     }
 
-    return instance;
+    return instance as T;
   }
 
   /**

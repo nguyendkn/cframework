@@ -226,8 +226,8 @@ app.configure((app) => {
 The Minimal API integrates seamlessly with Entity Framework:
 
 ```typescript
-import { MinimalApiApplication } from "@ts-core/minimal-api";
-import { addEntityFramework, addDbContext } from "@ts-core/entity-framework";
+import { MinimalApiApplication } from "@minimal-api";
+import { addEntityFramework, addDbContext } from "@database";
 
 // Configure services
 app.configureServices((services) => {

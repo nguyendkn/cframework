@@ -189,7 +189,8 @@ export function addConfiguration(
     const builder = new ConfigurationBuilder();
     const configuration = await configureBuilder(builder).build();
 
-    services.addSingleton(IConfiguration, { useValue: configuration });
+    // Using string as type to avoid TS2693 error
+    services.addSingleton('IConfiguration', { useValue: configuration });
 
     return services;
   })();

@@ -36,10 +36,13 @@ export function usePostgres(
   };
 
   // Override the data source options
-  builder._dataSourceOptions = {
+  const mergedOptions = {
     ...builder._dataSourceOptions,
     ...dataSourceOptions,
   };
+
+  // Cast to DataSourceOptions
+  builder._dataSourceOptions = mergedOptions as any;
 
   return builder;
 }

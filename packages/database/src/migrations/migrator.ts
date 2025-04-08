@@ -148,6 +148,7 @@ export function AddMigrations(
   dataSource: DataSource,
   migrations: IMigration[]
 ): IServiceCollection {
-  services.addSingleton(IMigrator, new Migrator(dataSource, migrations));
+  // Using string as type to avoid TS2693 error
+  services.addSingleton('IMigrator', new Migrator(dataSource, migrations));
   return services;
 }

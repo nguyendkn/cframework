@@ -2,9 +2,9 @@
 
 ## Current Focus
 Development of the TypeScript Core Framework with three main packages:
-- @ts-core/core: Core DI and HTTP abstractions
-- @ts-core/entity-framework: ORM functionality
-- @ts-core/minimal-api: Minimal API capabilities
+- @core: Core DI and HTTP abstractions
+- @database: ORM functionality
+- @minimal-api: Minimal API capabilities
 
 ## Recent Changes
 ### April 8, 2025

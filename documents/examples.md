@@ -14,8 +14,8 @@ A simple API that demonstrates the minimal API functionality:
 
 ```typescript
 // src/index.ts
-import { MinimalApiApplication } from "@ts-core/minimal-api";
-import { addLogging } from "@ts-core/core";
+import { MinimalApiApplication } from "@minimal-api";
+import { addLogging } from "@core";
 
 // Create application
 const app = new MinimalApiApplication();
@@ -68,7 +68,7 @@ import {
   PrimaryKey,
   Property,
   Required,
-} from "@ts-core/entity-framework";
+} from "@database";
 
 @Entity("todos")
 export class Todo extends Entity {
@@ -94,7 +94,7 @@ export class Todo extends Entity {
 
 ```typescript
 // src/data/app-db-context.ts
-import { DbContext, DbContextOptions, IDbSet } from "@ts-core/entity-framework";
+import { DbContext, DbContextOptions, IDbSet } from "@database";
 import { Todo } from "../entities/todo";
 
 export class AppDbContext extends DbContext {
@@ -111,8 +111,8 @@ export class AppDbContext extends DbContext {
 
 ```typescript
 // src/services/todo-service.ts
-import { Scoped, Inject } from "@ts-core/core";
-import { IDbContextFactory } from "@ts-core/entity-framework";
+import { Scoped, Inject } from "@core";
+import { IDbContextFactory } from "@database";
 import { AppDbContext } from "../data/app-db-context";
 import { Todo } from "../entities/todo";
 
@@ -198,10 +198,10 @@ export class TodoService {
 
 ```typescript
 // src/controllers/todo-controller.ts
-import { Controller, Get, Post, Put, Delete } from "@ts-core/minimal-api";
-import { HttpContext, Inject } from "@ts-core/core";
+import { Controller, Get, Post, Put, Delete } from "@minimal-api";
+import { HttpContext, Inject } from "@core";
 import { TodoService } from "../services/todo-service";
-import { NoContentResult, JsonResult } from "@ts-core/minimal-api";
+import { NoContentResult, JsonResult } from "@minimal-api";
 
 @Controller("todos")
 export class TodoController {
@@ -263,9 +263,9 @@ export class TodoController {
 
 ```typescript
 // src/index.ts
-import { MinimalApiApplication } from "@ts-core/minimal-api";
-import { addLogging } from "@ts-core/core";
-import { addEntityFramework, addDbContext } from "@ts-core/entity-framework";
+import { MinimalApiApplication } from "@minimal-api";
+import { addLogging } from "@core";
+import { addEntityFramework, addDbContext } from "@database";
 import { AppDbContext } from "./data/app-db-context";
 import { Todo } from "./entities/todo";
 import { TodoService } from "./services/todo-service";
@@ -273,12 +273,12 @@ import { TodoController } from "./controllers/todo-controller";
 import {
   ServiceCollectionExtensions,
   MinimalApiBuilderExtensions,
-} from "@ts-core/minimal-api";
+} from "@minimal-api";
 import {
   errorHandler,
   requestLogger,
   jsonBodyParser,
-} from "@ts-core/minimal-api";
+} from "@minimal-api";
 
 // Create application
 const app = new MinimalApiApplication();

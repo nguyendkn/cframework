@@ -2,9 +2,9 @@
 
 ## Architecture Overview
 The TypeScript Core Framework follows a modular monorepo architecture with three main packages:
-1. Core (@ts-core/core): Foundation with DI and HTTP abstractions
-2. Entity Framework (@ts-core/entity-framework): ORM functionality
-3. Minimal API (@ts-core/minimal-api): Streamlined API development
+1. Core (@core): Foundation with DI and HTTP abstractions
+2. Entity Framework (@database): ORM functionality
+3. Minimal API (@minimal-api): Streamlined API development
 
 ## Design Patterns
 ### Dependency Injection

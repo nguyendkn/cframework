@@ -178,6 +178,7 @@ export function addLogging(
   services: IServiceCollection,
   minLevel: LogLevel = LogLevel.Information
 ): IServiceCollection {
-  services.addSingleton(ILoggerFactory, new ConsoleLoggerFactory(minLevel));
+  // Using string as type to avoid TS2693 error
+  services.addSingleton('ILoggerFactory', new ConsoleLoggerFactory(minLevel));
   return services;
 }

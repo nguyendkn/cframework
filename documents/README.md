@@ -17,9 +17,9 @@ TypeScript Core Framework is a full-featured framework that brings the elegance 
 
 The framework consists of the following packages:
 
-- `@ts-core/core`: Core functionality including dependency injection and HTTP abstractions
-- `@ts-core/entity-framework`: ORM capabilities similar to Entity Framework Core
-- `@ts-core/minimal-api`: Minimal API functionality for building web APIs
+- `@core`: Core functionality including dependency injection and HTTP abstractions
+- `@database`: ORM capabilities similar to Entity Framework Core
+- `@minimal-api`: Minimal API functionality for building web APIs
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ The framework consists of the following packages:
 
 ```bash
 # Install the packages
-pnpm add @ts-core/core @ts-core/entity-framework @ts-core/minimal-api
+pnpm add @core @database @minimal-api
 ```
 
 ### Basic Usage
@@ -40,8 +40,8 @@ pnpm add @ts-core/core @ts-core/entity-framework @ts-core/minimal-api
 Here's a simple example of creating a minimal API application:
 
 ```typescript
-import { MinimalApiApplication } from "@ts-core/minimal-api";
-import { addLogging } from "@ts-core/core";
+import { MinimalApiApplication } from "@minimal-api";
+import { addLogging } from "@core";
 
 const app = new MinimalApiApplication();
 

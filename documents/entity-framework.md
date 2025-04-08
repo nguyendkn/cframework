@@ -1,11 +1,11 @@
 # Entity Framework
 
-The Entity Framework package (`@ts-core/entity-framework`) provides ORM capabilities similar to Entity Framework Core in .NET, allowing for easy database access and management.
+The Entity Framework package (`@database`) provides ORM capabilities similar to Entity Framework Core in .NET, allowing for easy database access and management.
 
 ## Installation
 
 ```bash
-pnpm add @ts-core/entity-framework
+pnpm add @database
 ```
 
 ## Key Components
@@ -21,7 +21,7 @@ import {
   Entity,
   PrimaryKey,
   Property,
-} from "@ts-core/entity-framework";
+} from "@database";
 
 // Define an entity
 @Entity("users")
@@ -58,7 +58,7 @@ import {
   Property,
   MaxLength,
   Required,
-} from "@ts-core/entity-framework";
+} from "@database";
 
 @Entity("products")
 class Product extends Entity {
@@ -115,7 +115,7 @@ The framework supports multiple database providers:
 #### SQLite
 
 ```typescript
-import { DbContextOptionsBuilder, useSqlite } from "@ts-core/entity-framework";
+import { DbContextOptionsBuilder, useSqlite } from "@database";
 
 const options = new DbContextOptionsBuilder()
   .useSqlite({
@@ -133,7 +133,7 @@ const options = new DbContextOptionsBuilder()
 import {
   DbContextOptionsBuilder,
   usePostgres,
-} from "@ts-core/entity-framework";
+} from "@database";
 
 const options = new DbContextOptionsBuilder()
   .usePostgres({
@@ -154,7 +154,7 @@ const options = new DbContextOptionsBuilder()
 The framework provides a migration system for managing database schema changes:
 
 ```typescript
-import { Migration, IMigrator, addMigrations } from "@ts-core/entity-framework";
+import { Migration, IMigrator, addMigrations } from "@database";
 
 // Define a migration
 class InitialMigration extends Migration {
@@ -188,7 +188,7 @@ await migrator.migrate();
 The Entity Framework integrates with the dependency injection system:
 
 ```typescript
-import { addEntityFramework, addDbContext } from "@ts-core/entity-framework";
+import { addEntityFramework, addDbContext } from "@database";
 
 // Configure services
 host.configureServices((services) => {
