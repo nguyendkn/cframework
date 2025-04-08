@@ -4,7 +4,7 @@ import { CONTROLLER_METADATA_KEY, ROUTE_METADATA_KEY } from "./decorators";
 /**
  * Controller base class
  */
-export abstract class Controller {
+export abstract class ControllerBase {
   /**
    * Register controller routes with the application builder
    */
@@ -69,7 +69,7 @@ export class ControllerFactory {
   /**
    * Create and register a controller
    */
-  public static createAndRegister<T extends Controller>(
+  public static createAndRegister<T extends ControllerBase>(
     builder: IMinimalApiBuilder,
     controllerType: new (...args: any[]) => T,
     ...args: any[]
@@ -78,7 +78,7 @@ export class ControllerFactory {
     const instance = new controllerType(...args);
 
     // Register routes
-    Controller.registerRoutes(builder, controllerType, instance);
+    ControllerBase.registerRoutes(builder, controllerType, instance);
 
     return instance;
   }

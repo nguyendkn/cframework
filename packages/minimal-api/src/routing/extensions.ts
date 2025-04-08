@@ -1,6 +1,6 @@
 import { IMinimalApiBuilder } from "../core/builder";
 import { IRouter, Router } from "./router";
-import { Controller, ControllerFactory } from "../endpoints/controller";
+import { ControllerBase, ControllerFactory } from "../endpoints/controller";
 import { IServiceCollection } from "@core/di";
 
 /**
@@ -23,12 +23,12 @@ export class MinimalApiBuilderExtensions {
    */
   public static mapControllers(
     builder: IMinimalApiBuilder,
-    controllers: Array<new (...args: any[]) => Controller>,
+    controllers: Array<new (...args: any[]) => ControllerBase>,
     serviceProvider?: any
   ): IMinimalApiBuilder {
     for (const controllerType of controllers) {
       // Create controller instance
-      let instance: Controller;
+      let instance: ControllerBase;
 
       if (serviceProvider) {
         // Try to resolve from service provider
@@ -42,7 +42,7 @@ export class MinimalApiBuilderExtensions {
       }
 
       // Register routes
-      Controller.registerRoutes(builder, controllerType, instance);
+      ControllerBase.registerRoutes(builder, controllerType, instance);
     }
 
     return builder;
@@ -58,7 +58,7 @@ export class ServiceCollectionExtensions {
    */
   public static addControllers(
     services: IServiceCollection,
-    controllers: Array<new (...args: any[]) => Controller>
+    controllers: Array<new (...args: any[]) => ControllerBase>
   ): IServiceCollection {
     for (const controller of controllers) {
       services.addScoped(controller);

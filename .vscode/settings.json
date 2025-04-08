@@ -3,5 +3,6 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "zencoder.enableRepoIndexing": true
 }
